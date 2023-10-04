@@ -1,0 +1,20 @@
+{# templates/service/showService.html.twig #}
+<h1>Auteur : {{ name }}</h1>
+{% set x=6 %}
+<ul>
+    {% for author in tab %}
+        <li>
+            <img src="{{ author.picture }}" alt="" width="100">
+            <strong>{{ author.username|upper }}</strong>
+            <br>
+            Email: {{ author.email }}
+            <br>
+            Nombre de livres: {{ author.nb_books }}
+            {% if author.nb_books > 0 %}
+                <button>BUY</button>
+            {% endif %}
+             <a href="{{ path('detail', { 'authorName': author.username }) }}">show name</a>
+             
+        </li>
+    {% endfor %}
+</ul>
