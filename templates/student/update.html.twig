@@ -6,36 +6,36 @@
   <div class="container">
     <h2 class="text-center">Formulaire</h2>
     <form method="post" class="my-form">
-      {{ form_start(formulaire) }}
-      {{ form_errors(formulaire) }}
+      {{ form_start(form) }}
+      {{ form_errors(form) }}
 
       <div class="form-group">
-        {{ form_label(formulaire.name, 'Nom :') }}
-        {{ form_widget(formulaire.name, {'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(formulaire.name) }}
+        {{ form_label(form.name, 'Nom :') }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.name) }}
       </div>
 
       <div class="form-group">
-        {{ form_label(formulaire.email, 'Email :') }}
-        {{ form_widget(formulaire.email, {'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(formulaire.email) }}
+        {{ form_label(form.email, 'Email :') }}
+        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.email) }}
       </div>
 
       <div class="form-group">
-        {{ form_label(formulaire.age, 'Age :') }}
-        {{ form_widget(formulaire.age, {'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(formulaire.age) }}
+        {{ form_label(form.age, 'Age :') }}
+        {{ form_widget(form.age, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.age) }}
       </div>
 
       <div class="form-group">
-        {{ form_label(formulaire.classroom, 'Classroom :') }}
-        {{ form_widget(formulaire.classroom, {'attr': {'class': 'form-control'}}) }}
-        {{ form_errors(formulaire.classroom) }}
+        {{ form_label(form.classroom, 'Classroom :') }}
+        {{ form_widget(form.classroom, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.classroom) }}
       </div>
 
       <button type="submit" class="btn btn-primary">Envoyer</button>
 
-      {{ form_end(formulaire) }}
+      {{ form_end(form) }}
     </form>
   </div>
 

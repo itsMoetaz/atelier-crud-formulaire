@@ -1,0 +1,129 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome!{% endblock %}
+
+{% block body %}
+<br> 
+<br> 
+  <style>
+    .custom-table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .custom-table th, .custom-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .custom-table th {
+      background-color: #f2f2f2;
+    }
+
+    .custom-table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .custom-table tr:hover {
+      background-color: #e0e0e0;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space between;
+      align-items: center;
+    }
+    .custom-button {
+      background-color: blue;
+      color: white;
+      cursor: pointer;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      margin-left: 360px;
+      text-decoration: none; /* Supprime les sous-lignes */
+    }
+
+    .delete-button, .update-button {
+      background-color: red;
+      color: white;
+      cursor: pointer;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none; /* Supprime les sous-lignes */
+    }
+
+    .update-button {
+      background-color: green;
+    }
+
+    .page-title {
+      text-align: center;
+      font-size: 54px; /* Ajustez la taille de la police selon votre choix */
+      margin-bottom: 45px; /* Ajustez la marge inférieure selon votre choix */
+    }
+
+    /* Dark mode styles should be defined outside .page-title */
+    .dark-mode {
+      background-color: #333;
+      color: #fff;
+      /* Add other dark mode styles here */
+    }
+  </style>
+
+  <div class="container">
+    <div class="page-title">Student List</div>
+
+    <!-- Dark mode toggle button -->
+    <button id="dark-mode-toggle">Dark Mode</button>
+   
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Classroom</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for repo in response %}
+          <tr>
+            <td>{{ repo.Name }}</td>
+            <td>{{ repo.Email }}</td>
+            <td>{{ repo.Age }}</td>
+            <td>{{ repo.classroom }}</td>
+            <td>
+              <a href="{{ path('delete', {'id': repo.id}) }}" class="btn delete-button">Delete</a>  
+              <a href="{{ path('update', {'id': repo.id}) }}" class="btn update-button">Update</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    
+    <div class="button-container" style="margin-top: 10px;">
+      <a href="{{ path('addF') }}" class="custom-button">New student</a>
+    </div>
+  </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+      const body = document.body;
+
+      darkModeToggle.addEventListener("click", function() {
+        body.classList.toggle("dark-mode");
+      });
+    });
+  </script>
+</body>
+</html>
+
+{% endblock %}
